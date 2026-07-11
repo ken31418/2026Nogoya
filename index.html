@@ -1,0 +1,250 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>2026 名古屋・河口湖・靜岡親子十日旅</title>
+  <style>
+    :root { --navy:#173a5e; --ink:#24313d; --muted:#607181; --cream:#fffaf0; --coral:#ee6b56; --teal:#2c9b94; --gold:#efb43c; }
+    * { box-sizing:border-box; }
+    body { margin:0; background:#e9edf0; color:var(--ink); font-family:"Microsoft JhengHei","Noto Sans TC",sans-serif; }
+    #book { display:flex; flex-direction:column; align-items:center; gap:36px; padding:36px; }
+    .page { width:1200px; height:1800px; overflow:hidden; position:relative; background:var(--cream); box-shadow:0 12px 40px #1422332b; }
+    .hero { height:430px; position:relative; overflow:hidden; }
+    .hero img { width:100%; height:100%; object-fit:cover; }
+    .hero:after { content:""; position:absolute; inset:45% 0 0; background:linear-gradient(transparent,rgba(12,34,52,.82)); }
+    .day-badge { position:absolute; top:34px; left:40px; z-index:2; background:var(--accent); color:white; border-radius:18px; padding:14px 23px; font-size:28px; font-weight:900; letter-spacing:1px; box-shadow:0 6px 20px #0004; }
+    .title-wrap { position:absolute; z-index:2; left:44px; right:44px; bottom:32px; color:#fff; }
+    h1 { margin:0 0 9px; font-size:51px; line-height:1.12; letter-spacing:1px; text-shadow:0 3px 8px #0007; }
+    .subtitle { font-size:25px; font-weight:700; opacity:.96; }
+    .content { height:1370px; padding:34px 44px 30px; display:grid; grid-template-rows:auto 1fr auto; gap:24px; background:var(--cream); }
+    .mission { display:grid; grid-template-columns:150px 1fr; align-items:center; min-height:112px; padding:18px 24px; border:3px solid color-mix(in srgb,var(--accent) 72%,white); border-radius:22px; background:#fff; }
+    .mission-label { color:var(--accent); font-weight:900; font-size:28px; }
+    .mission-text { font-size:31px; line-height:1.45; font-weight:800; }
+    .main { display:grid; grid-template-columns:1.38fr .92fr; gap:25px; min-height:0; background:var(--cream); }
+    .panel { background:#fff; border-radius:22px; padding:25px 28px; border:1px solid #dfe6e9; min-height:0; }
+    .panel h2 { margin:0 0 18px; font-size:31px; color:var(--navy); display:flex; align-items:center; gap:10px; }
+    .panel h2:before { content:""; width:9px; height:31px; border-radius:5px; background:var(--accent); }
+    .timeline { display:flex; flex-direction:column; gap:0; }
+    .slot { display:grid; grid-template-columns:138px 26px 1fr; min-height:91px; }
+    .time { color:var(--accent); font-size:24px; font-weight:900; padding-top:3px; white-space:nowrap; }
+    .rail { position:relative; }
+    .rail:before { content:""; position:absolute; top:10px; left:9px; width:8px; height:8px; border-radius:50%; background:var(--accent); box-shadow:0 0 0 6px color-mix(in srgb,var(--accent) 18%,white); }
+    .rail:after { content:""; position:absolute; top:23px; bottom:-4px; left:12px; width:2px; background:#d5dde2; }
+    .slot:last-child .rail:after { display:none; }
+    .event b { display:block; font-size:24px; line-height:1.3; margin-bottom:4px; }
+    .event span { color:var(--muted); font-size:19px; line-height:1.45; }
+    .side { display:flex; flex-direction:column; gap:18px; background:var(--cream); }
+    .box { border-radius:19px; padding:20px 22px; background:#fff; border:2px solid #dfe6e9; }
+    .box.must { border-color:#f2c66f; background:#fffaf0; }
+    .box.stop { border-color:#f09b8d; background:#fff5f3; }
+    .box.kids { border-color:#78c9c3; background:#f1fbfa; }
+    .box h3 { margin:0 0 12px; font-size:25px; color:var(--navy); }
+    ul { margin:0; padding-left:25px; }
+    li { margin:0 0 10px; font-size:20px; line-height:1.45; }
+    li:last-child { margin-bottom:0; }
+    .note { border-radius:20px; padding:21px 25px; background:var(--navy); color:white; display:grid; grid-template-columns:105px 1fr; gap:18px; align-items:center; }
+    .note strong { font-size:24px; color:#ffdc83; }
+    .note span { font-size:21px; line-height:1.55; }
+    .footer { position:absolute; bottom:10px; right:22px; font-size:14px; color:#7e8a94; }
+    @media print { body { background:#fff; } #book { padding:0; gap:0; } .page { box-shadow:none; page-break-after:always; } }
+  </style>
+</head>
+<body><main id="book"></main>
+<script>
+const days = [
+  {
+    day:"DAY 1｜7/18（六）", title:"高雄 → 中部機場 → 名古屋入住", sub:"抵達日｜不排景點，穩穩完成入境與移動", img:"assets/day01.png", accent:"#e9674f",
+    mission:"把體力留給後面九天：抵達後只做入境、搭名鐵、入住與簡單晚餐。",
+    timeline:[
+      ["15:00","高雄起飛","Tigerair Taiwan IT268；隨身保留護照、手機與孩子用品。"],
+      ["19:15","抵達中部國際機場 T2","入境、領行李、通關抓約 60 分鐘。"],
+      ["20:15 左右","走往 Access Plaza","跟著 Train／名鉄指標；推車與行李不奔跑。"],
+      ["20:37","主線：μ-SKY 到金山","全車指定席；到站後直接搭計程車。"],
+      ["20:47","備案：特急到金山","錯過主線就搭特急一般車廂，不追趕早班車。"],
+      ["21:20–21:40","入住 Airbnb","便利商店／熟食簡單吃，整理隔天推車與用品。"]
+    ],
+    must:["四人護照、機票與住宿資料離線保存","抵達車站再買最近可搭班次","金山站到住宿直接搭計程車"],
+    stop:["不要預買 20:07 或 20:17 指定班次","錯過 20:37 就切換 20:47 特急","今晚不加夜市或購物行程"],
+    kids:["推車保持可立即使用","行李延誤時先確保孩子飲水與點心","到房後只做必要整理，盡快洗澡睡覺"],
+    note:"μ-SKY 需要乘車券＋μ-ticket；特急一般車廂只需乘車券。"
+  },
+  {
+    day:"DAY 2｜7/19（日）", title:"名古屋市科學館＋大須", sub:"科學實驗、三輪神社與商店街", img:"assets/day02.png", accent:"#318ca8",
+    mission:"早到只為搶極寒實驗室整理券；下午輕鬆逛大須，不為購物犧牲休息。",
+    timeline:[
+      ["08:40","住宿出發","建議計程車直達科學館，穿包腳鞋與襪子。"],
+      ["09:00","入口排隊","天文館已售罄，不候補、不碰運氣。"],
+      ["09:30","直奔理工館 5F","全家領極寒實驗室最早可行時段整理券。"],
+      ["09:40–12:15","極寒＋常設展","水之廣場、龍捲風、放電實驗依序看。"],
+      ["12:30–13:00","三輪神社","參拜兔子、緣結之木；御朱印依現場開放。"],
+      ["13:00–13:40","大須午餐","選免久候、孩子能先吃飽的店。"],
+      ["13:40–17:15","大須商店街","大須觀音、萬松寺、玩具／二手店；晚餐彈性。"]
+    ],
+    must:["極寒實驗室每場僅 15 人","龍捲風、放電、水之廣場","大須採買先定孩子預算"],
+    stop:["09:00 要到科學館門口","沒拿到極寒券就不等追加","天氣熱或孩子累就縮短大須"],
+    kids:["每 30–45 分鐘補水","極寒館穿襪與包腳鞋，現場有外套","晚餐未綁店家，以有座位為優先"],
+    note:"少了天文館反而能更從容看常設展；今天不追求把大須每間店逛完。"
+  },
+  {
+    day:"DAY 3｜7/20（一・海之日）", title:"吉卜力公園 Standard", sub:"魔女之谷、大倉庫與魔法公主之里", img:"assets/day03.png", accent:"#4f8a64",
+    mission:"把 11:00 大倉庫預約與新短篇放在中心；上午低排隊、下午不追求制霸。",
+    timeline:[
+      ["07:00","離開住宿","上前津 → 榮 → 藤丘 → Linimo；帶推車與飲水。"],
+      ["09:00–10:10","魔女之谷","旋轉木馬、麵包店閣樓；排隊超過 20 分鐘就放棄麵包。"],
+      ["10:40","大倉庫入口排隊","停妥推車，準備四人 QR Code。"],
+      ["11:00–14:15","吉卜力大倉庫","短篇、兒童之街、全景箱展、小人庭園；商店最後逛。"],
+      ["14:15–14:45","三日月休息所","冷氣、午餐／點心與午睡準備。"],
+      ["14:45–16:10","魔法公主之里","戶外散步與溜滑梯；酷熱或下雨就縮短。"],
+      ["17:20 起","藤丘晚餐 → 回住宿","選最先有座位的店；約 19:00 回房。"]
+    ],
+    must:["入館先確認《魔女之谷之夜》場次","兒童之街與龍貓巴士遊戲室","冒險飛行團只留最後 15–20 分鐘"],
+    stop:["11:00 大倉庫是固定預約","化身名場面等待超過 30 分鐘就略過","高溫不適直接取消魔法公主之里"],
+    kids:["建築內需停推車","自帶食物在付費區外吃","下午安排推車午睡，不硬撐戶外"],
+    note:"Standard 日不進霍爾城堡、奧基諾宅邸與魔女之家；三棟留到 7/22 Premium。"
+  },
+  {
+    day:"DAY 4｜7/21（二）", title:"LEGOLAND Japan 夏日玩水版", sub:"駕駛學校、冒險設施、積木採買", img:"assets/day04.png", accent:"#e64f46",
+    mission:"早上先完成兩種駕駛學校；若搶到 Water Maze II，就把玩水當完整時段。",
+    timeline:[
+      ["08:00","線上搶 Water Maze II","目標 12:30 場；完成後截圖。沒搶到就走室內休息版。"],
+      ["08:20–09:45","計程車＋青波線到入口","目標 09:00 青波線、09:45 排隊；早上不逛 Maker’s Pier。"],
+      ["10:00–11:10","樂高城市區","4 歲初級駕駛、8 歲駕駛學校，再玩救援學院。"],
+      ["11:10–11:50","提早午餐","避開正午人潮；接著換泳衣。"],
+      ["12:30–13:30","Water Maze II＋換裝","全員泳衣；結束立刻擦乾、補防曬。"],
+      ["13:30–16:35","冒險區 → 騎士王國 → 工廠","潛艇優先；迷你樂園與 PAB 設時限。"],
+      ["16:40–17:50","Big Shop＋轉蛋店","17:10 結帳離園；Maker’s Pier 18:00 關門。"],
+      ["18:01 起","回名古屋、金山晚餐","約 20:00 回住宿，準備隔日 QR Code。"]
+    ],
+    must:["兩種駕駛學校＋救援學院","潛艇冒險、失落王國、工廠參觀","泳衣、毛巾、防水袋、可濕水鞋"],
+    stop:["Water Maze 只搶一場，不貪兩個水區","17:10 必須離開 Big Shop","轉蛋店 18:00 關門"],
+    kids:["玩水後完整換乾衣","沒搶到水迷宮：用潑水秀＋室內電影休息","延誤先刪表演、久留與細逛"],
+    note:"暫停設施不排；PAB 與購物都有明確目標，但一律設定時間上限。"
+  },
+  {
+    day:"DAY 5｜7/22（三）", title:"吉卜力公園 Premium 五棟任務", sub:"Premium 建築優先，不使用 13:00 大倉庫預約", img:"assets/day05.png", accent:"#7d694c",
+    mission:"12:00 前領手環，完成五棟室內場景；購物、外觀照與大倉庫都可放棄。",
+    timeline:[
+      ["08:00","離開住宿","上前津 → 榮 → 藤丘 → Linimo；四人 QR Code 已截圖。"],
+      ["10:00–11:50","魔女之谷三棟","霍爾城堡 → 奧基諾宅邸 → 魔女之家；第一區領手環。"],
+      ["11:50–12:20","快速午餐","不排完整餐廳、不玩旋轉木馬。"],
+      ["12:35–13:20","青春之丘","地球屋優先；貓咪事務所只看外觀。"],
+      ["13:45–15:00","小月與小梅之家","4 歲午睡時由家長分工；15:00 前處理入屋。"],
+      ["15:00–15:45","Dondoko 堂與山頂","孩子遊具；推車優先用斜坡車。"],
+      ["16:10–16:35","返回園區站","不新增區域；約 18:30–19:00 回住宿。"]
+    ],
+    must:["霍爾城堡","奧基諾宅邸／琪琪的家","魔女之家","地球屋","小月與小梅之家"],
+    stop:["最晚 12:00 前領 Premium 手環","15:00 前處理小月與小梅之家","最晚 16:30 停止進入青春之丘／Dondoko"],
+    kids:["推車停建築外","午睡優先時家長分批參觀","刪減：商店 → 外觀排隊 → 山頂購物"],
+    note:"今天的價值就是五棟建築；13:00 大倉庫預約刻意不使用。"
+  },
+  {
+    day:"DAY 6｜7/23（四）", title:"退房、租車、自駕前往河口湖", sub:"中央道北線長途移動日｜觀光只留服務區", img:"assets/day06.png", accent:"#377ca8",
+    mission:"安全完成約五小時駕駛、必要休息與採買；18:15–19:00 抵達河口湖最實際。",
+    timeline:[
+      ["最晚 10:00","Airbnb 退房","清點充電器、冰箱、浴室、床下；搭計程車到名古屋站。"],
+      ["11:25–12:15","Toyota 租車手續","確認 ETC、兩張兒童座椅、油種、刮傷、CarPlay 與 ACC。"],
+      ["約 12:15","正式上路","先熟悉右駕、方向燈、雨刷與導航。"],
+      ["13:30 左右","惠那峽 SA（選配）","13:25 前可停 15–20 分；超過 13:40 直接跳過。"],
+      ["15:35–16:10","諏訪湖 SA（主要休息）","看湖、廁所、伸展、補水；即使延誤仍至少休息 10 分鐘。"],
+      ["18:15–19:00","河口湖 Cottage 入住","晚於 18:00 由非駕駛者致電住宿。"],
+      ["入住前或後","超市採買","晚餐、隔日早餐、水果與住宿未提供的盥洗用品。"]
+    ],
+    must:["4 歲安全座椅＋8 歲增高座椅","ETC 卡、油種與還車規則拍照","諏訪湖是主要駕駛休息站"],
+    stop:["惠那峽 13:40 硬截止","住宿晚於 18:00 要聯絡","不為守時間壓縮必要休息"],
+    kids:["車內立即用品與後車廂分袋","準備暈車袋、濕紙巾、飲水與小點","住宿無毛巾、牙刷、洗髮精、面紙與睡衣"],
+    note:"若導航 ETA 已晚，先在河口湖 IC 附近採買再入住，避免放行李後折返超市。"
+  },
+  {
+    day:"DAY 7｜7/24（五）", title:"河口湖親子慢遊＋音樂森林", sub:"清晨看富士山；上午單選，下午固定室內美術館", img:"assets/day07.png", accent:"#5b79ad",
+    mission:"不環湖制霸：天氣好就纜車＋藍莓；條件不成立就只選一項，保住下午美術館。",
+    timeline:[
+      ["07:15–08:00","早餐、確認天氣","纜車復駛＋09:00 前時段＋富士山可見，三項都成立才組合。"],
+      ["09:00–09:45","全景纜車（條件式）","只看展望台，不排鞦韆、步道或遊覽船。"],
+      ["10:15–10:55","藍莓採果（條件式）","40 分鐘吃到飽；09:45 尚未下山就取消採果。"],
+      ["10:55–11:40","簡便午餐、前往美術館","不排耗時餺飥；車內飯糰／三明治即可。"],
+      ["12:30–15:30","音樂與森林美術館","先拍節目表；灰姑娘沙畫、Titanic 樂器、舞蹈風琴優先。"],
+      ["15:30–16:30","只選一個小點","山露臉看湖；想玩去木之花；累了就在館內甜點。"],
+      ["17:15–18:15","超市採買、回 Cottage","買晚餐與 7/25 車上補給；回房煮飯。"]
+    ],
+    must:["音樂與森林美術館固定保留","上午：西湖／藍莓／纜車原則三選一","下雨改 Craft Park 手作"],
+    stop:["纜車 09:45 未下山就取消藍莓","下午最多再加一個 45–60 分小點","17:00 左右轉入採買與晚餐"],
+    kids:["戶外帽子、防曬、水、薄長袖與運動鞋","看不到富士山不算失敗","晚間不再開車追夜景"],
+    note:"富士山看運氣；湖景、採果、音樂表演與 Cottage 晚餐已足以構成完整一天。"
+  },
+  {
+    day:"DAY 8｜7/25（六）", title:"河口湖 → 清水・靜岡 → 濱名湖", sub:"小丸子樂園、兩站採買與湖畔飯店", img:"assets/day08.png", accent:"#e0804f",
+    mission:"三個指定點由東往西順路完成；不增加第四個正式景點，17:15 左右離開靜岡。",
+    timeline:[
+      ["08:00–10:00","早餐、裝車、退房","10:00 前交回鑰匙、床單與枕套。"],
+      ["10:00–12:00","開往清水","依即時路況選高速；暈車就安全休息。"],
+      ["12:00–12:40","DREAM PLAZA 午餐","先吃飯；停車券帶進館做消費折抵。"],
+      ["12:45–14:00","小丸子樂園","教室、丸子家、拍照區；不加摩天輪。"],
+      ["14:30–15:20","玩具反斗城","每位孩子只能選一件，先定預算。"],
+      ["16:00–17:15","駿河屋本店","先定集合樓層、集合時間與清單。"],
+      ["18:40–19:20","AEON 採買晚餐／早餐","熟食回房最穩；補游泳後點心與飲料。"],
+      ["19:20 後","濱名湖美爵入住","房內晚餐、溫泉；今晚不游泳。"]
+    ],
+    must:["小丸子樂園是唯一正式觀光點","玩具反斗城與駿河屋任務型採買","AEON 同時買隔日早餐"],
+    stop:["14:15 應離開 DREAM PLAZA","15:50 尚未到玩具店就跳過","17:15 建議離開駿河屋；17:45 硬截止"],
+    kids:["每人玩具只選一件","飯店訂房不含晚餐與早餐","今晚用溫泉／桌球／Book Chapel，泳池留明早"],
+    note:"延誤刪減：摩天輪與額外購物 → 縮短玩具店 → 縮短駿河屋。"
+  },
+  {
+    day:"DAY 9｜7/26（日）", title:"濱名湖晨泳 → 還車 → 名古屋站", sub:"A 直返預設／B 刈谷短停｜入住 JR 門樓酒店", img:"assets/day09.png", accent:"#268fa4",
+    mission:"泳池只游 50 分鐘；15:15 前完成還車，入住後再逛飯店樓下商場。",
+    timeline:[
+      ["07:45–08:50","早餐、換泳裝","行李前晚完成八成，只留盥洗與泳裝。"],
+      ["09:00–09:50","飯店泳池","09:45 最後一輪，09:50 必須離水。"],
+      ["09:50–11:00","洗澡、吹髮、退房","濕衣物獨立裝袋；11:00 前退房。"],
+      ["11:00 起","A 直返／B 刈谷短停","A 最寬鬆；B 只午餐＋一項設施，13:30 必須離開。"],
+      ["13:15–15:15","加油、Toyota 還車","A 約 13:15–13:45；B 約 14:50–15:15。"],
+      ["14:10–15:40","JR 門樓酒店","先完成還車，再拖行李穿越名古屋站入住。"],
+      ["16:45–20:00","3COINS＋Hands","早關店先逛；20:00 後再去餐廳街晚餐。"]
+    ],
+    must:["09:50 離開泳池","加滿指定油種、保留收據","還車後再入住，不開進名站地下停車場"],
+    stop:["B 案 13:30 離開刈谷","15:15 內部還車目標","16:30 警戒、17:00 合約硬截止"],
+    kids:["游泳後補點心與電解質飲料","入住先休息再購物","Hands 只選 2–3 層，避免最後一晚逛到過累"],
+    note:"A 案若 14:10 前到飯店才考慮熱田神宮；晚到就直接取消。"
+  },
+  {
+    day:"DAY 10｜7/27（一）", title:"鰻魚飯、寶可夢、機場返台", sub:"推薦 A 案：午後提早到機場，把 Flight Park 當最後景點", img:"assets/day10.png", accent:"#d29a25",
+    mission:"守住 11:30 鰻魚飯與機場列車；午餐延遲就縮短／取消寶可夢中心。",
+    timeline:[
+      ["08:30","退房、寄放行李","伊奴神社為選配；太累、下雨或 08:40 未出發就取消。"],
+      ["11:30–13:00","しら河鰻魚飯","已訂 4 位；原味 → 藥味 → 茶泡飯，孩子先分原味。"],
+      ["13:10–14:05","Pokémon Center","拍照、買名古屋紀念小物；14:05 必須離店。"],
+      ["14:05–14:55","回飯店領行李、進名鐵站","買指定席；搭最先出發的機場直達列車。"],
+      ["15:35–15:55","T1 買蝦仙貝","蝦仙貝之里優先；常溫乾貨一次買齊。"],
+      ["16:00–16:50","Flight Park","Boeing 787 展示與兒童遊具；17:00 關閉。"],
+      ["17:05–18:15","T2 報到、托運、出境","完成後不再折返 T1。"],
+      ["19:20 前","抵達登機口","IT269 20:05 起飛，22:30 抵達高雄。"]
+    ],
+    must:["11:30 しら河訂位","蝦仙貝之里與 Flight Park","19:20 前到登機口"],
+    stop:["午餐 13:25 後結束：跳過寶可夢中心","A 案約 14:55 搭機場列車","若改 B 採買案：16:19 目標、16:30 最後保守班次"],
+    kids:["鰻魚先分原味，不強迫蔥、芥末與高湯","Flight Park 網床需穿襪","T2 公共區報到前無正式餐廳，別把晚餐押在櫃檯旁"],
+    note:"常溫乾貨在 T1 買；液體／酒類過安檢後買。完成 T2 報到後不再折返。"
+  }
+];
+
+function list(items){ return `<ul>${items.map(x=>`<li>${x}</li>`).join("")}</ul>`; }
+function render(d,i){
+  return `<section class="page" id="day-${i+1}" style="--accent:${d.accent}">
+    <div class="hero"><img src="${d.img}" alt="${d.title}"><div class="day-badge">${d.day}</div><div class="title-wrap"><h1>${d.title}</h1><div class="subtitle">${d.sub}</div></div></div>
+    <div class="content">
+      <div class="mission"><div class="mission-label">今日核心</div><div class="mission-text">${d.mission}</div></div>
+      <div class="main">
+        <section class="panel"><h2>時間軸與執行重點</h2><div class="timeline">${d.timeline.map(x=>`<div class="slot"><div class="time">${x[0]}</div><div class="rail"></div><div class="event"><b>${x[1]}</b><span>${x[2]}</span></div></div>`).join("")}</div></section>
+        <aside class="side">
+          <div class="box must"><h3>★ 今天一定要完成</h3>${list(d.must)}</div>
+          <div class="box stop"><h3>⏱ 硬截止與刪減規則</h3>${list(d.stop)}</div>
+          <div class="box kids"><h3>☀ 親子體力／備品提醒</h3>${list(d.kids)}</div>
+        </aside>
+      </div>
+      <div class="note"><strong>記住這句</strong><span>${d.note}</span></div>
+    </div>
+    <div class="footer">2026 名古屋・河口湖・靜岡親子十日旅｜依 2026/7/11 行程資料製作</div>
+  </section>`;
+}
+document.getElementById("book").innerHTML = days.map(render).join("");
+</script></body></html>

@@ -47,10 +47,24 @@
     .note strong { font-size:24px; color:#ffdc83; }
     .note span { font-size:21px; line-height:1.55; }
     .footer { position:absolute; bottom:10px; right:22px; font-size:14px; color:#7e8a94; }
-    @media print { body { background:#fff; } #book { padding:0; gap:0; } .page { box-shadow:none; page-break-after:always; } }
+    .site-nav { position:fixed; z-index:20; top:18px; right:22px; display:flex; gap:10px; padding:8px; border-radius:18px; background:#fffffff0; box-shadow:0 8px 30px #14223338; backdrop-filter:blur(10px); }
+    .site-nav a { display:inline-flex; align-items:center; min-height:44px; padding:9px 17px; border-radius:12px; color:var(--navy); font-size:16px; font-weight:900; text-decoration:none; }
+    .site-nav a[aria-current="page"] { background:var(--navy); color:#fff; }
+    .site-nav a:hover { background:#eaf2f4; }
+    .site-nav a[aria-current="page"]:hover { background:var(--navy); }
+    body.render-mode #book { padding:0; gap:0; }
+    body.render-mode .page { box-shadow:none; }
+    body.render-mode .site-nav { display:none; }
+    @media (max-width:700px) { .site-nav { top:auto; right:14px; bottom:14px; left:14px; justify-content:center; } .site-nav a { flex:1; justify-content:center; } }
+    @media print { body { background:#fff; } .site-nav { display:none; } #book { padding:0; gap:0; } .page { box-shadow:none; page-break-after:always; } }
   </style>
 </head>
-<body><main id="book"></main>
+<body>
+<nav class="site-nav" aria-label="網站導覽">
+  <a href="index.html" aria-current="page">每日行程</a>
+  <a href="recipes.html">旅宿自炊食譜</a>
+</nav>
+<main id="book"></main>
 <script>
 const days = [
   {
@@ -156,21 +170,22 @@ const days = [
     note:"若導航 ETA 已晚，先在河口湖 IC 附近採買再入住，避免放行李後折返超市。"
   },
   {
-    day:"DAY 7｜7/24（五）", title:"河口湖親子慢遊＋音樂森林", sub:"清晨看富士山；上午單選，下午固定室內美術館", img:"assets/day07.png", accent:"#5b79ad",
-    mission:"不環湖制霸：天氣好就纜車＋藍莓；條件不成立就只選一項，保住下午美術館。",
+    day:"DAY 7｜7/24（五）", title:"河口湖慢遊＋富士吉田 WORKMAN", sub:"上午看天氣，下午美術館與機能服採買", img:"assets/day07.png", accent:"#5b79ad",
+    mission:"不環湖制霸：天氣好就纜車＋藍莓；下午固定美術館與富士吉田 WORKMAN。",
     timeline:[
       ["07:15–08:00","早餐、確認天氣","纜車復駛＋09:00 前時段＋富士山可見，三項都成立才組合。"],
       ["09:00–09:45","全景纜車（條件式）","只看展望台，不排鞦韆、步道或遊覽船。"],
       ["10:15–10:55","藍莓採果（條件式）","40 分鐘吃到飽；09:45 尚未下山就取消採果。"],
       ["10:55–11:40","簡便午餐、前往美術館","不排耗時餺飥；車內飯糰／三明治即可。"],
       ["12:30–15:30","音樂與森林美術館","先拍節目表；灰姑娘沙畫、Titanic 樂器、舞蹈風琴優先。"],
-      ["15:30–16:30","只選一個小點","山露臉看湖；想玩去木之花；累了就在館內甜點。"],
-      ["17:15–18:15","超市採買、回 Cottage","買晚餐與 7/25 車上補給；回房煮飯。"]
+      ["15:30–15:50","前往富士吉田松山店","取消原本附近小點，直接開往 WORKMAN。"],
+      ["15:50–16:40","WORKMAN 機能服採買","優先冷感衣、UV 外套、雨具與機能鞋；準時離店。"],
+      ["16:40–18:15","超市採買、回 Cottage","買晚餐與 7/25 車上補給；回房煮飯。"]
     ],
-    must:["音樂與森林美術館固定保留","上午：西湖／藍莓／纜車原則三選一","下雨改 Craft Park 手作"],
-    stop:["纜車 09:45 未下山就取消藍莓","下午最多再加一個 45–60 分小點","17:00 左右轉入採買與晚餐"],
+    must:["音樂與森林美術館固定保留","15:50 富士吉田 WORKMAN","下雨改 Craft Park，下午購物照常"],
+    stop:["纜車 09:45 未下山就取消藍莓","16:40 準時離開 WORKMAN","不再增加其他湖畔小點"],
     kids:["戶外帽子、防曬、水、薄長袖與運動鞋","看不到富士山不算失敗","晚間不再開車追夜景"],
-    note:"富士山看運氣；湖景、採果、音樂表演與 Cottage 晚餐已足以構成完整一天。"
+    note:"WORKMAN 富士吉田松山店：松山 5-8-16，07:00–20:00，停車 14 台。"
   },
   {
     day:"DAY 8｜7/25（六）", title:"河口湖 → 清水・靜岡 → 濱名湖", sub:"小丸子樂園、兩站採買與湖畔飯店", img:"assets/day08.png", accent:"#e0804f",
@@ -247,4 +262,11 @@ function render(d,i){
   </section>`;
 }
 document.getElementById("book").innerHTML = days.map(render).join("");
+const renderDay = Number(new URLSearchParams(location.search).get("renderDay"));
+if (renderDay >= 1 && renderDay <= days.length) {
+  document.body.classList.add("render-mode");
+  document.querySelectorAll(".page").forEach((page, index) => {
+    if (index + 1 !== renderDay) page.remove();
+  });
+}
 </script></body></html>

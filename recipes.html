@@ -1,0 +1,177 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="description" content="名古屋親子旅行旅宿自炊食譜：日本超市採買日文、快速醬料、16 道簡易料理與夏季食品安全提醒。" />
+  <title>旅宿自炊食譜｜2026 名古屋・河口湖・靜岡親子十日旅</title>
+  <style>
+    :root {
+      --ink:#27343b; --muted:#617178; --cream:#fffaf0; --paper:#fffef9;
+      --green:#416b55; --green-soft:#edf5ee; --red:#a94e3d; --gold:#d39a2d;
+      --line:#dfe6df; --shadow:0 14px 42px #26392d20;
+    }
+    * { box-sizing:border-box; }
+    html { scroll-behavior:smooth; }
+    body { margin:0; color:var(--ink); background:#e9eee9; font-family:"Microsoft JhengHei","Noto Sans TC",sans-serif; line-height:1.7; }
+    a { color:inherit; }
+    .site-nav { position:sticky; z-index:20; top:0; display:flex; justify-content:flex-end; gap:10px; padding:12px max(18px,calc((100% - 1120px)/2)); background:#fffffff2; border-bottom:1px solid #dce5dc; backdrop-filter:blur(12px); }
+    .site-nav a { display:inline-flex; align-items:center; min-height:44px; padding:8px 16px; border-radius:12px; color:var(--green); font-weight:900; text-decoration:none; }
+    .site-nav a:hover { background:var(--green-soft); }
+    .site-nav a[aria-current="page"] { color:#fff; background:var(--green); }
+    main { width:min(1120px,calc(100% - 32px)); margin:24px auto 64px; }
+    .hero { position:relative; overflow:hidden; padding:54px clamp(24px,6vw,70px); color:#fff; border-radius:30px; background:linear-gradient(135deg,#315642,#54775f 60%,#8a7745); box-shadow:var(--shadow); }
+    .hero:after { content:""; position:absolute; width:290px; height:290px; right:-80px; top:-120px; border:44px solid #ffffff1d; border-radius:50%; }
+    .eyebrow { margin:0 0 8px; color:#ffe099; font-size:15px; font-weight:900; letter-spacing:.12em; }
+    h1 { position:relative; z-index:1; margin:0; font-size:clamp(36px,6vw,64px); line-height:1.15; letter-spacing:.02em; }
+    .lead { position:relative; z-index:1; max-width:760px; margin:18px 0 0; font-size:clamp(17px,2.2vw,22px); line-height:1.7; }
+    .equipment { position:relative; z-index:1; display:flex; flex-wrap:wrap; gap:9px; margin-top:24px; }
+    .equipment span { padding:7px 12px; border:1px solid #ffffff55; border-radius:999px; background:#ffffff17; font-weight:800; }
+    .jump { display:flex; flex-wrap:wrap; gap:10px; margin:22px 0 34px; padding:14px; border-radius:18px; background:#fff; box-shadow:0 8px 24px #26392d12; }
+    .jump a { padding:8px 13px; border-radius:10px; color:var(--green); background:var(--green-soft); font-weight:800; text-decoration:none; }
+    section { margin:38px 0; scroll-margin-top:86px; }
+    .section-title { display:flex; align-items:flex-end; justify-content:space-between; gap:20px; padding-bottom:12px; border-bottom:3px solid var(--green); }
+    h2 { margin:0; color:var(--green); font-size:clamp(27px,4vw,38px); line-height:1.25; }
+    .section-title p { margin:0; color:var(--muted); }
+    .table-wrap { overflow-x:auto; margin-top:20px; border:1px solid var(--line); border-radius:20px; background:#fff; box-shadow:0 7px 20px #26392d0c; }
+    table { width:100%; min-width:720px; border-collapse:collapse; }
+    th,td { padding:14px 17px; text-align:left; vertical-align:top; border-bottom:1px solid var(--line); }
+    th { color:#fff; background:var(--green); font-size:15px; letter-spacing:.03em; }
+    tr:last-child td { border-bottom:0; }
+    td:first-child { width:16%; font-weight:900; }
+    td:nth-child(2) { width:32%; color:var(--red); font-weight:800; }
+    code { padding:.12em .35em; border-radius:6px; color:#8f3e31; background:#f8ece8; font-family:inherit; font-weight:800; }
+    .sauce-grid,.recipe-grid { display:grid; gap:18px; margin-top:20px; }
+    .sauce-grid { grid-template-columns:repeat(3,1fr); }
+    .recipe-grid { grid-template-columns:repeat(2,1fr); }
+    .card { padding:23px; border:1px solid var(--line); border-radius:20px; background:var(--paper); box-shadow:0 8px 25px #26392d0b; }
+    .card h3 { margin:0 0 10px; color:var(--green); font-size:23px; line-height:1.35; }
+    .card p { margin:9px 0; }
+    .ingredients { padding:12px 14px; border-radius:12px; background:var(--green-soft); }
+    .ingredients strong { color:var(--green); }
+    ol { margin:13px 0 0; padding-left:25px; }
+    li { margin-bottom:7px; }
+    .tip { margin-top:13px; padding-top:12px; color:var(--muted); border-top:1px dashed #b9c8bb; }
+    .group-label { display:flex; align-items:center; gap:12px; margin:32px 0 0; color:var(--red); font-size:24px; }
+    .group-label:after { content:""; flex:1; height:1px; background:#d7c4bd; }
+    .safety { padding:26px 28px; border:2px solid #e6c66f; border-radius:22px; background:#fff8df; }
+    .safety h2 { color:#78581b; }
+    .safety ul { margin:18px 0 0; padding-left:24px; }
+    footer { padding:28px 18px 40px; color:var(--muted); text-align:center; }
+    @media (max-width:800px) {
+      .sauce-grid,.recipe-grid { grid-template-columns:1fr; }
+      .section-title { display:block; }
+      .section-title p { margin-top:6px; }
+    }
+    @media (max-width:560px) {
+      .site-nav { justify-content:center; padding:10px; }
+      .site-nav a { flex:1; justify-content:center; padding-inline:8px; }
+      main { width:min(100% - 20px,1120px); margin-top:10px; }
+      .hero { padding:38px 22px; border-radius:22px; }
+      .jump { gap:7px; }
+      .jump a { flex:1 1 45%; text-align:center; }
+      .card { padding:19px; }
+    }
+    @media print {
+      body { background:#fff; }
+      .site-nav,.jump { display:none; }
+      main { width:100%; margin:0; }
+      .hero { box-shadow:none; }
+      .card,.table-wrap { box-shadow:none; break-inside:avoid; }
+    }
+  </style>
+</head>
+<body>
+<nav class="site-nav" aria-label="網站導覽">
+  <a href="index.html">每日行程</a>
+  <a href="recipes.html" aria-current="page">旅宿自炊食譜</a>
+</nav>
+
+<main>
+  <header class="hero">
+    <p class="eyebrow">NAGOYA FAMILY TRIP · STAY-IN COOKING</p>
+    <h1>名古屋旅宿自炊食譜</h1>
+    <p class="lead">以日本超市容易買到的食材為主，不需要電鍋；白飯使用 <code>パックごはん</code>。適合旅行途中想快速開飯、消耗冰箱食材的晚上。</p>
+    <div class="equipment" aria-label="需要的設備"><span>平底鍋</span><span>湯鍋</span><span>微波爐</span><span>小份調味料</span></div>
+  </header>
+
+  <nav class="jump" aria-label="食譜頁章節">
+    <a href="#shopping">採買日文</a><a href="#sauces">快速醬料</a><a href="#meat">肉類與飯</a><a href="#fish">魚豆腐蛋</a><a href="#quick">烏龍與宵夜</a><a href="#safety">保存安全</a>
+  </nav>
+
+  <section id="shopping">
+    <div class="section-title"><h2>採買時認這些日文</h2><p>在超市用關鍵字快速找食材</p></div>
+    <div class="table-wrap"><table>
+      <thead><tr><th>想買的東西</th><th>日文關鍵字</th><th>備註</th></tr></thead>
+      <tbody>
+        <tr><td>微波白飯</td><td>パックごはん、レトルトご飯、無菌包装米飯</td><td>150g 適合宵夜；180–200g 適合正餐。未開封多可常溫保存，依包裝加熱。</td></tr>
+        <tr><td>大蔥</td><td>長ねぎ、白ねぎ</td><td>白色段適合煎煮，綠色段最後再下鍋或做蔥鹽醬。</td></tr>
+        <tr><td>蔥花</td><td>刻みねぎ、小ねぎ</td><td>可直接撒在豆腐、烏龍與丼飯上。</td></tr>
+        <tr><td>薄切肉</td><td>豚こま切れ、豚バラ、しゃぶしゃぶ用</td><td>豚こま最萬用；豚バラ油脂較香。</td></tr>
+        <tr><td>雞腿肉</td><td>鶏もも肉</td><td>做親子丼、蔥鹽雞都適合。</td></tr>
+        <tr><td>豆腐類</td><td>絹ごし豆腐、木綿豆腐、厚揚げ</td><td>冷豆腐選絹豆腐；厚揚げ適合煎。</td></tr>
+        <tr><td>主食</td><td>冷凍うどん、焼きそば麺</td><td>冷凍烏龍加熱快，口感穩定。</td></tr>
+        <tr><td>調味料</td><td>めんつゆ、ポン酢、ごま油、昆布塩／昆布だし塩</td><td>優先買小瓶或小包裝；昆布鹽先少量使用。</td></tr>
+        <tr><td>名古屋風味</td><td>八丁味噌、赤だし、たまり醤油</td><td>八丁味噌味濃偏鹹，適合炒、煮；溜醬油適合沾或最後提味。</td></tr>
+      </tbody>
+    </table></div>
+  </section>
+
+  <section id="sauces">
+    <div class="section-title"><h2>共用快速醬料</h2><p>先備好，肉、魚、豆腐與主食都能搭</p></div>
+    <div class="sauce-grid">
+      <article class="card"><h3>蔥鹽醬</h3><p class="ingredients"><strong>材料：</strong>細切蔥花 1 大把、香油 1 大匙、昆布鹽少量、黑胡椒、檸檬汁少許；可加蒜泥。</p><p>全部拌勻即可。可放在煎雞腿、豬肉、鮭魚、豆腐、厚揚げ或微波白飯上。</p></article>
+      <article class="card"><h3>八丁味噌炒醬</h3><p class="ingredients"><strong>比例：</strong>八丁味噌 1、小匙糖 1、小匙味醂或清酒 1、小匙水 1–2。</p><p>先拌好再入鍋，避免味噌直接焦掉。第一次寧可少放，味道不夠再補。</p></article>
+      <article class="card"><h3>簡易烏龍／丼飯湯汁</h3><p class="ingredients"><strong>基底：</strong>めんつゆ依包裝建議加水稀釋。</p><p>想更有層次可加少量薑泥或蔥白。可用於親子丼、雞肉蔥烏龍與蔬菜鍋。</p></article>
+    </div>
+  </section>
+
+  <section id="meat">
+    <div class="section-title"><h2>肉類與白飯</h2><p>快速、下飯，適合全家晚餐</p></div>
+    <div class="recipe-grid">
+      <article class="card"><h3>1. 豬肉生薑燒飯</h3><p class="ingredients"><strong>材料：</strong>豚こま或豚バラ、洋蔥、微波白飯、薑泥、醬油（或めんつゆ）、糖少許。</p><ol><li>微波白飯依包裝加熱。</li><li>洋蔥炒軟後，下豬肉炒熟。</li><li>加薑泥、醬油／めんつゆ與少許糖，收汁後鋪在白飯上。</li></ol><p class="tip">可配高麗菜絲或番茄；喜歡蔥可撒 <code>刻みねぎ</code>。</p></article>
+      <article class="card"><h3>2. 名古屋風八丁味噌豬肉炒茄子</h3><p class="ingredients"><strong>材料：</strong>豬肉片、茄子、青椒或洋蔥、八丁味噌炒醬、微波白飯。</p><ol><li>茄子切塊後先用油煎軟，盛起。</li><li>下豬肉與青椒／洋蔥炒熟。</li><li>茄子回鍋，倒入八丁味噌炒醬，快速拌到收汁。</li><li>配微波白飯。</li></ol><p class="tip">可加大葉切絲平衡濃味。</p></article>
+      <article class="card"><h3>3. 蔥鹽豬肉丼</h3><p class="ingredients"><strong>材料：</strong>豬肉片、長ねぎ或刻みねぎ、蔥鹽醬、微波白飯。</p><ol><li>豬肉片以少量油煎熟。</li><li>白飯加熱後盛碗，放上豬肉。</li><li>堆上大量蔥鹽醬。</li></ol><p class="tip">想吃更香，可把一半長ねぎ斜切後與豬肉同煎。</p></article>
+      <article class="card"><h3>4. 蔥鹽雞腿排</h3><p class="ingredients"><strong>材料：</strong>鶏もも肉、蔥鹽醬、小黃瓜或番茄、微波白飯。</p><ol><li>雞腿肉皮面朝下，中小火煎至金黃。</li><li>翻面煎至全熟。</li><li>切片後放蔥鹽醬，配白飯與生菜／番茄。</li></ol></article>
+      <article class="card"><h3>5. 親子丼</h3><p class="ingredients"><strong>材料：</strong>鶏もも肉、洋蔥、雞蛋 2 顆、めんつゆ加水、微波白飯。</p><ol><li>小鍋放湯汁與洋蔥，煮軟後加入雞肉，煮到全熟。</li><li>倒入打散的蛋液，依喜好控制熟度。</li><li>蓋鍋關火約 1 分鐘，倒在加熱好的白飯上，撒蔥花。</li></ol></article>
+      <article class="card"><h3>6. 雞肉蔥烏龍</h3><p class="ingredients"><strong>材料：</strong>鶏もも肉、長ねぎ、冷凍うどん、めんつゆ。</p><ol><li>長ねぎ白色段斜切，與雞肉炒出香氣。</li><li>加稀釋めんつゆ與適量水，煮至雞肉熟透。</li><li>加冷凍烏龍煮開，起鍋前放綠色蔥段或蔥花。</li></ol></article>
+    </div>
+  </section>
+
+  <section id="fish">
+    <div class="section-title"><h2>魚、豆腐與蛋</h2><p>食材少、收拾快的輕鬆選擇</p></div>
+    <div class="recipe-grid">
+      <article class="card"><h3>7. 鮭魚奶油醬油菇菇</h3><p class="ingredients"><strong>材料：</strong>加熱用鮭魚、鴻喜菇／舞菇、奶油、醬油或溜醬油、微波白飯。</p><ol><li>鮭魚擦乾後煎熟，先盛起。</li><li>同鍋加奶油炒菇類。</li><li>鮭魚回鍋，沿鍋邊加一小圈醬油；配白飯。</li></ol><p class="tip">起鍋後加蔥鹽醬也很搭。</p></article>
+      <article class="card"><h3>8. 冷豆腐蔥鹽盤</h3><p class="ingredients"><strong>材料：</strong>絹ごし豆腐、蔥鹽醬、大葉、柴魚片（可選）、白飯或納豆。</p><p>豆腐瀝水後，放蔥鹽醬、大葉切絲與柴魚片。想吃飽可配微波白飯與納豆。</p></article>
+      <article class="card"><h3>9. 焦香厚揚げ佐蔥</h3><p class="ingredients"><strong>材料：</strong>厚揚げ、長ねぎ或蔥花、溜醬油／ポン酢、昆布鹽。</p><ol><li>厚揚げ切片，不放油或只放極少油，兩面煎到焦脆。</li><li>淋少許溜醬油或ポン酢，撒大量蔥花與一點昆布鹽。</li></ol></article>
+      <article class="card"><h3>10. 蔥蛋丼</h3><p class="ingredients"><strong>材料：</strong>長ねぎ、雞蛋、昆布鹽、微波白飯。</p><ol><li>長ねぎ切斜段，以少量油中小火炒到軟甜。</li><li>打入雞蛋，撒昆布鹽，炒至喜歡的熟度。</li><li>鋪在微波白飯上。</li></ol><p class="tip">可加納豆或海苔。</p></article>
+    </div>
+  </section>
+
+  <section id="quick">
+    <div class="section-title"><h2>烏龍、蔬菜與宵夜</h2><p>清冰箱、補蔬菜，也適合晚歸時快速吃</p></div>
+    <div class="recipe-grid">
+      <article class="card"><h3>11. 夏季冷烏龍</h3><p class="ingredients"><strong>材料：</strong>冷凍うどん、めんつゆ、秋葵、大葉、茗荷、溫泉蛋或全熟水煮蛋、冷豆腐（可選）。</p><ol><li>烏龍煮好後以冷水沖涼、瀝乾。</li><li>めんつゆ依包裝加水後淋上。</li><li>放秋葵、切絲大葉、茗荷與蛋；旁邊配冷豆腐就是一餐。</li></ol></article>
+      <article class="card"><h3>12. 味噌煮烏龍／清冰箱鍋</h3><p class="ingredients"><strong>材料：</strong>豬肉片、豆腐、菇類、白菜或水菜、長ねぎ、冷凍うどん、めんつゆ、八丁味噌。</p><ol><li>鍋中加入稀釋めんつゆ與水，放豬肉、蔬菜、菇與豆腐煮熟。</li><li>關小火，舀少許湯把八丁味噌調開後再倒回鍋中。</li><li>加冷凍烏龍煮熱；味道夠即可。</li></ol></article>
+      <article class="card"><h3>13. 昆布鹽菇菇奶油炒</h3><p class="ingredients"><strong>材料：</strong>鴻喜菇、舞菇或杏鮑菇、奶油、昆布鹽、黑胡椒。</p><p>菇類炒到水分收乾、邊緣微焦，加奶油與少量昆布鹽、黑胡椒。可當白飯配菜，或鋪在煎鮭魚與豆腐旁。</p></article>
+      <article class="card"><h3>14. 昆布鹽小黃瓜／毛豆</h3><p class="ingredients"><strong>材料：</strong>小黃瓜或冷凍毛豆、昆布鹽、香油。</p><p>小黃瓜拍裂切段，或把毛豆加熱後瀝乾；拌少量昆布鹽與幾滴香油。適合當煮飯時先吃的小菜。</p></article>
+      <article class="card"><h3>15. 焦香烤大蔥</h3><p class="ingredients"><strong>材料：</strong>長ねぎ、昆布鹽、溜醬油或ポン酢。</p><ol><li>長ねぎ切成 4–5 公分段。</li><li>平底鍋中小火慢煎，讓表面焦褐、中心變甜。</li><li>撒昆布鹽，或以少量溜醬油／ポン酢沾食。</li></ol></article>
+      <article class="card"><h3>16. 蔥鹽烤飯糰</h3><p class="ingredients"><strong>材料：</strong>微波白飯、蔥花、昆布鹽、醬油。</p><ol><li>白飯加熱後稍放涼，拌少許蔥花與昆布鹽，捏成扁飯糰。</li><li>平底鍋以少量油煎到兩面有鍋巴。</li><li>最後刷極少量醬油，再撒蔥花。</li></ol></article>
+    </div>
+  </section>
+
+  <section id="safety" class="safety">
+    <h2>保存與安全小提醒</h2>
+    <ul>
+      <li>冷藏、冷凍品最後再拿；回住宿後立刻入冰箱。肉魚與可生食食材分開放。</li>
+      <li><code>消費期限</code> 是安全食用期限；<code>賞味期限</code> 是風味期限。開封後都盡快吃完。</li>
+      <li>魚貝類只有明確標示 <code>刺身用</code> 或 <code>生食用</code> 才生吃；標示 <code>加熱用</code> 必須充分加熱。</li>
+      <li>夏天的刺身、壽司與熟食便當不要久放常溫；買了就趁早吃。</li>
+      <li>微波白飯依包裝指定時間加熱；勿把需冷凍的 <code>冷凍ごはん</code> 當成常溫包裝白飯。</li>
+    </ul>
+  </section>
+</main>
+
+<footer>2026 名古屋・河口湖・靜岡親子十日旅｜旅宿自炊備忘</footer>
+</body>
+</html>

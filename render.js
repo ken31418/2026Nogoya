@@ -4,9 +4,12 @@ const fs = require('fs');
 
 (async () => {
   const root = __dirname;
+  const outputDir = path.join(root, '.rendered');
+  fs.mkdirSync(outputDir, { recursive: true });
   const browser = await chromium.launch({
     headless: true,
-    executablePath: 'C:\\Program Files (x86)\\Microsoft\\Edge\\Application\\msedge.exe'
+    executablePath: 'C:\\Program Files (x86)\\Microsoft\\Edge\\Application\\msedge.exe',
+    args: ['--disable-gpu']
   });
   const page = await browser.newPage({ viewport: { width: 1280, height: 1900 }, deviceScaleFactor: 1 });
   await page.goto('file:///' + path.join(root, 'index.html').replace(/\\/g, '/'), { waitUntil: 'networkidle' });
@@ -18,13 +21,13 @@ const fs = require('fs');
     '10_0727_鰻魚飯與機場返台.png'
   ];
   for (let i = 0; i < names.length; i++) {
-    await page.goto('file:///' + path.join(root, 'index.html').replace(/\\/g, '/'), { waitUntil: 'networkidle' });
+    const url = 'file:///' + path.join(root, 'index.html').replace(/\\/g, '/') + `?renderDay=${i + 1}`;
+    await page.goto(url, { waitUntil: 'networkidle' });
     await page.evaluate(() => document.fonts.ready);
     const card = await page.$(`#day-${i + 1}`);
-    await card.scrollIntoViewIfNeeded();
-    await page.waitForTimeout(250);
-    await card.screenshot({ path: path.join(root, names[i]) });
+    await page.waitForTimeout(400);
+    await card.screenshot({ path: path.join(outputDir, names[i]) });
   }
   await browser.close();
-  console.log(`Rendered ${names.length} daily cards.`);
+  console.log(`Rendered ${names.length} daily cards to ${outputDir}.`);
 })();

@@ -17,10 +17,16 @@
     .title-wrap { position:absolute; z-index:2; left:44px; right:44px; bottom:32px; color:#fff; }
     h1 { margin:0 0 9px; font-size:51px; line-height:1.12; letter-spacing:1px; text-shadow:0 3px 8px #0007; }
     .subtitle { font-size:25px; font-weight:700; opacity:.96; }
-    .content { height:1370px; padding:34px 44px 30px; display:grid; grid-template-rows:auto 1fr auto; gap:24px; background:var(--cream); }
+    .content { height:1370px; padding:30px 44px 28px; display:grid; grid-template-rows:auto auto 1fr auto; gap:18px; background:var(--cream); }
     .mission { display:grid; grid-template-columns:150px 1fr; align-items:center; min-height:112px; padding:18px 24px; border:3px solid color-mix(in srgb,var(--accent) 72%,white); border-radius:22px; background:#fff; }
     .mission-label { color:var(--accent); font-weight:900; font-size:28px; }
     .mission-text { font-size:31px; line-height:1.45; font-weight:800; }
+    .weather { display:grid; grid-template-columns:135px 330px 1fr; align-items:center; min-height:78px; padding:13px 22px; border-radius:18px; color:#173a5e; background:#eaf5fb; border:2px solid #b9d9e9; }
+    .weather-label { font-size:23px; font-weight:900; }
+    .weather-main { font-size:23px; line-height:1.25; font-weight:900; color:#155f7a; }
+    .weather-action { font-size:19px; line-height:1.4; font-weight:700; }
+    .weather.low-confidence { background:#fff7e6; border-color:#efc66f; }
+    .weather.low-confidence .weather-main { color:#9a5f00; }
     .main { display:grid; grid-template-columns:1.38fr .92fr; gap:25px; min-height:0; background:var(--cream); }
     .panel { background:#fff; border-radius:22px; padding:25px 28px; border:1px solid #dfe6e9; min-height:0; }
     .panel h2 { margin:0 0 18px; font-size:31px; color:var(--navy); display:flex; align-items:center; gap:10px; }
@@ -245,12 +251,27 @@ const days = [
   }
 ];
 
+const weather = [
+  {main:"27–32°C｜早雨轉陰", action:"19:15 抵達時仍可能有短暫雨；雨傘放隨身行李，地面濕滑不趕車。"},
+  {main:"26–33°C｜多雲", action:"降雨機率約 40%；白天悶熱，祭典遇雨或雷聲直接取消。"},
+  {main:"26–35°C｜雲多偶晴", action:"降雨機率約 30%；戶外區每 30–45 分鐘補水，午後陣雨就縮短。"},
+  {main:"26–38°C｜晴時多雲", action:"危險高溫日；玩水前後都補水，正午改室內／遮蔭，出現頭暈立刻停。"},
+  {main:"27–38°C｜晴時多雲", action:"危險高溫日；五棟優先，園區長距離移動放慢，不為趕預約奔跑。"},
+  {main:"名古屋 27–38°C／河口湖約 21–26°C", action:"長途移動日；山區午後雷雨訊號不一致，車上備雨衣，遇強雨進服務區等待。", uncertain:true},
+  {main:"河口湖約 20–27°C｜預報分歧", action:"官方為雲多偶晴、30%，延伸模式偏陣雨；纜車＋藍莓只在無雷雨時啟動。", uncertain:true},
+  {main:"清水／濱名湖約 24–29°C｜偏雨", action:"延伸展望約 55–65% 有雨；小丸子主線保留，採買縮短，強雨時提早去飯店。", uncertain:true},
+  {main:"濱名湖／名古屋約 24–30°C｜陣雨", action:"延伸展望約 60–75%；泳池遇雷或場方停開就取消，優先守住還車時間。", uncertain:true},
+  {main:"名古屋 24–32°C／機場 25–30°C", action:"延伸展望有短暫雨；帶摺傘，伊奴神社遇雨取消，室內午餐與機場動線照常。", uncertain:true}
+];
+
 function list(items){ return `<ul>${items.map(x=>`<li>${x}</li>`).join("")}</ul>`; }
 function render(d,i){
+  const w = weather[i];
   return `<section class="page" id="day-${i+1}" style="--accent:${d.accent}">
     <div class="hero"><img src="${d.img}" alt="${d.title}"><div class="day-badge">${d.day}</div><div class="title-wrap"><h1>${d.title}</h1><div class="subtitle">${d.sub}</div></div></div>
     <div class="content">
       <div class="mission"><div class="mission-label">今日核心</div><div class="mission-text">${d.mission}</div></div>
+      <div class="weather${w.uncertain ? " low-confidence" : ""}"><div class="weather-label">☂ 最新天氣</div><div class="weather-main">${w.main}</div><div class="weather-action">${w.action}</div></div>
       <div class="main">
         <section class="panel"><h2>時間軸與執行重點</h2><div class="timeline">${d.timeline.map(x=>`<div class="slot"><div class="time">${x[0]}</div><div class="rail"></div><div class="event"><b>${x[1]}</b><span>${x[2]}</span></div></div>`).join("")}</div></section>
         <aside class="side">
@@ -261,7 +282,7 @@ function render(d,i){
       </div>
       <div class="note"><strong>記住這句</strong><span>${d.note}</span></div>
     </div>
-    <div class="footer">2026 名古屋・河口湖・靜岡親子十日旅｜資料更新 2026/7/17</div>
+    <div class="footer">2026 名古屋・河口湖・靜岡親子十日旅｜天氣更新 2026/7/17 17:00 JST</div>
   </section>`;
 }
 document.getElementById("book").innerHTML = days.map(render).join("");
